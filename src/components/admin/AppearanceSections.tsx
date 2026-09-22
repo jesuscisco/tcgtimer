@@ -35,6 +35,8 @@ export function LayoutSection() {
   const editing = useTimerStore((s) => s.editing);
   const layout = editing.layout;
   const patch = useTimerStore((s) => s.patchLayout);
+  const patchHeader = useTimerStore((s) => s.patchHeader);
+  const patchFooter = useTimerStore((s) => s.patchFooter);
 
   return (
     <SectionCard title="Posición y composición" description="Alineación, separación y offsets del conjunto.">
@@ -51,9 +53,9 @@ export function LayoutSection() {
       </div>
 
       {([
-        { key: "Header", align: layout.headerAlign, zone: layout.headerZone, onAlign: (a: AlignX) => patch({ headerAlign: a }), onZone: (z: VerticalZone) => patch({ headerZone: z }) },
+        { key: "Header", align: editing.header.textAlign, zone: layout.headerZone, onAlign: (a: AlignX) => patchHeader({ textAlign: a }), onZone: (z: VerticalZone) => patch({ headerZone: z }) },
         { key: "Timer", align: layout.timerAlign, zone: layout.timerZone, onAlign: (a: AlignX) => patch({ timerAlign: a }), onZone: (z: VerticalZone) => patch({ timerZone: z }) },
-        { key: "Footer", align: layout.footerAlign, zone: layout.footerZone, onAlign: (a: AlignX) => patch({ footerAlign: a }), onZone: (z: VerticalZone) => patch({ footerZone: z }) },
+        { key: "Footer", align: editing.footer.textAlign, zone: layout.footerZone, onAlign: (a: AlignX) => patchFooter({ textAlign: a }), onZone: (z: VerticalZone) => patch({ footerZone: z }) },
       ] as const).map((row) => (
         <div key={row.key} className="flex flex-wrap items-center justify-between gap-2 rounded-md bg-slate-800/40 px-3 py-2">
           <span className="w-16 text-xs font-semibold uppercase text-slate-400">{row.key}</span>

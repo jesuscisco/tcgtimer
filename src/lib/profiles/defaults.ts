@@ -33,11 +33,9 @@ export function createDefaultProfile(overrides?: Partial<TimerProfile>): TimerPr
       gap: 32,
       offsetY: 0,
       maxWidthPct: 90,
-      headerAlign: "center",
       headerZone: "top",
       timerAlign: "center",
       timerZone: "middle",
-      footerAlign: "center",
       footerZone: "bottom",
     },
     timer: {

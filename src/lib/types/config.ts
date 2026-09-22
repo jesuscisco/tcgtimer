@@ -69,11 +69,9 @@ export interface LayoutConfig {
   offsetY: number;
   /** overall max width percentage 40..100 */
   maxWidthPct: number;
-  headerAlign: AlignX;
   headerZone: VerticalZone;
   timerAlign: AlignX;
   timerZone: VerticalZone;
-  footerAlign: AlignX;
   footerZone: VerticalZone;
 }
 
